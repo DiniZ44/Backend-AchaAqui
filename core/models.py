@@ -53,5 +53,3 @@ class Empresa(models.Model):
     endereco = models.ForeignKey(Endereco, on_delete= models.PROTECT)
     servico = models.ForeignKey(Servico, on_delete= models.PROTECT)
 
-
-
