@@ -65,7 +65,7 @@ class Usuario(models.Model):
 class Empresa(models.Model):
     #imagem = models.ImageField()
     nome = models.CharField(max_length=50)
-    descricao = models.CharField(max_length=50)
+    descricao = models.TextField(default='')
     senha = models.CharField(max_length=50)
     horario = models.TimeField(auto_now=False)
     palavrasChaves = models.CharField(max_length=50)
