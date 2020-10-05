@@ -8,11 +8,11 @@ class Contato(models.Model):
         return self.telefone
 
 class Feedback(models.Model):
-    classificao = models.IntegerField()
+    classificacao = models.IntegerField()
     descricao = models.TextField(default='')
 
     def __str__(self):
-        return 'Classificação', self.classificao, 'Feed -' + self.descricao
+        return 'Classificação', self.classificacao, 'Feed -' + self.descricao
 
 class Endereco(models.Model):
     rua = models.CharField(max_length=50)
@@ -65,14 +65,12 @@ class Usuario(models.Model):
 class Empresa(models.Model):
     #imagem = models.ImageField()
     nome = models.CharField(max_length=50)
-    descricao = models.TextField(default='')
+    descricao = models.CharField(max_length=50)
     senha = models.CharField(max_length=50)
-    horario = models.CharField(max_length=50)
+    horario = models.TimeField(auto_now=False)
     palavrasChaves = models.CharField(max_length=50)
+    premium = models.BooleanField(default=False)
     feedback = models.ForeignKey(Feedback, on_delete= models.PROTECT)
     contato = models.ForeignKey(Contato, on_delete= models.PROTECT)
     endereco = models.ForeignKey(Endereco, on_delete= models.PROTECT)
     servico = models.ForeignKey(Servico, on_delete= models.PROTECT)
-
-    def __str__(self):
-        return '%s %s %s' %(self.nome, self.descricao, self.servico.descricao)
