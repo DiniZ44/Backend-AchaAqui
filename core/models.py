@@ -7,7 +7,7 @@ class Contato(models.Model):
 
 class Feedback(models.Model):
     classificao = models.IntegerField()
-    descricao = models.CharField
+    descricao = models.TextField(default='')
 
 
 class Endereco(models.Model):
@@ -44,7 +44,7 @@ class Usuario(models.Model):
 class Empresa(models.Model):
     #imagem = models.ImageField()
     nome = models.CharField(max_length=50)
-    descricao = models.CharField(max_length=50)
+    descricao = models.TextField(default='')
     senha = models.CharField(max_length=50)
     horario = models.CharField(max_length=50)
     palavrasChaves = models.CharField(max_length=50)
